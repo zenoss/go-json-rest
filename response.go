@@ -12,6 +12,10 @@ type ResponseWriter struct {
 	isIndented bool
 }
 
+func NewResponseWriter(w http.ResponseWriter, isIndented bool) ResponseWriter {
+	return ResponseWriter{w, isIndented}
+}
+
 // Encode the object in JSON, set the content-type header,
 // and call Write.
 func (self *ResponseWriter) WriteJson(v interface{}) error {
